@@ -15,14 +15,14 @@ jobs:
         
     - name: Install dependencies
       run: |
-        pip install pyinstaller soundcard soundfile requests numpy
+        pip install pyinstaller opencv-python numpy mss websockets pillow tkinter
         
     - name: Build macOS executable
       run: |
-        pyinstaller --onefile --windowed --name "AudioMirro" AudioMirro.py
+        pyinstaller --onefile --windowed --name "CueLens" CueLensResize.py
         
     - name: Upload macOS app
       uses: actions/upload-artifact@v3
       with:
-        name: AudioMirro-macOS
-        path: dist/AudioMirro
+        name: CueLens-macOS
+        path: dist/CueLens
